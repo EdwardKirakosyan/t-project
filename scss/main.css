@@ -14,25 +14,12 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 40%;
+  width: 80%;
   margin: 0 auto;
 }
-.main .main__paragraph1, .main .main__paragraph2 {
+.main .main__paragraph {
   font-weight: 700;
 }
-.main .main__paragraph1:hover, .main .main__paragraph2:hover {
+.main .main__paragraph:hover {
   color: rgb(0, 0, 0);
-}
-.main .main__paragraph2:hover {
-  color: #ff652f;
-}
-@media (max-width: 800px) {
-  .main {
-    flex-direction: column;
-  }
-}
-
-.light {
-  background: white;
-  color: black;
 }/*# sourceMappingURL=main.css.map */

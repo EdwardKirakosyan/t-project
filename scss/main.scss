@@ -5,10 +5,24 @@
   @return map-get($font-weights, $weight-name);
 }
 
-@mixin flexCenter {
+@mixin flexCenter($direction) {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+  @if $light-theme {
+    background: lighten($primary-color, 100%);
+    color: darken($text-color, 100%);
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
 }
 
 body {
@@ -17,15 +31,31 @@ body {
 }
 
 .main {
-  @include flexCenter;
-  width: 80%;
+  @include flexCenter(row);
+  width: 80% - 40px;
   margin: 0 auto;
 
-  #{&}__paragraph {
+  #{&}__paragraph1 {
     font-weight: weight(bold);
 
     &:hover {
-      color: pink;
+      color: rgb(0, 0, 0);
     }
   }
+
+  #{&}__paragraph2 {
+    @extend .main__paragraph1;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.light {
+  @include theme($light-theme: true);
 }
